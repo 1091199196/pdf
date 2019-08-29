@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.ServiceMaterialMapper">
+    <select id="queryAllMaterial" resultType="com.example.entity.ServiceMaterial">
+     SELECT * from t_ahs_service_material WHERE DOC_PATH is NOT NULL
+    </select>
+
+    <update id="updateServiceMaterial" parameterType="com.example.entity.ServiceMaterial" >
+        update t_ahs_service_material set SAMPLE_TABLE_ATTA_OID = #{sampleTableAttaOid},
+        NULL_TABLE_ATTA_OID = #{nullTableAttaOid} where oid = #{oid}
+    </update>
+
+</mapper>
